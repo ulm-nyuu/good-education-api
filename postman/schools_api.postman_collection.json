@@ -1,0 +1,168 @@
+{
+  "info": {
+    "name": "Australian Schools API",
+    "_postman_id": "8f73f5c2-8a2a-47a2-9c11-123456789abc",
+    "description": "API for managing schools in Australia with filtering by state, sector, and type.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Schools",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/schools",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Filter by State (NSW)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/schools?state=NSW",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools"
+          ],
+          "query": [
+            {
+              "key": "state",
+              "value": "NSW"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Filter by Sector (Catholic)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/schools?sector=Catholic",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools"
+          ],
+          "query": [
+            {
+              "key": "sector",
+              "value": "Catholic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Show School",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/schools/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create School",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \\\"official_name\\\": \\\"Sydney Grammar School\\\",\\n  \\\"sector_id\\\": 1,\\n  \\\"type_id\\\": 2,\\n  \\\"established_year\\\": 1854,\\n  \\\"website\\\": \\\"https://sydneygrammar.example\\\"\\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/schools",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update School",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \\\"official_name\\\": \\\"Sydney Grammar Updated\\\"\\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/schools/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete School",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/schools/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "1"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ]
+}
